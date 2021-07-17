@@ -27,11 +27,11 @@
             <div>
                 <v-data-table
                 :headers="headers"
-                :items="desserts"
+                :items="items"
                 item-key="name"
                 class="elevation-1"
                 :search="search"
-                :custom-filter="filterOnlyCapsText"
+                :custom-filter="filterCompanies"
                 >
                 <template v-slot:top>
                     <v-text-field
@@ -40,8 +40,10 @@
                     class="mx-4"
                     ></v-text-field>
                 </template>
-                <template v-slot:body.append>
+                <template v-slot:item.tc="{ item }">
+                    <span>{{ formattedCurrency(item.tc) }}</span>
                 </template>
+
                 </v-data-table>
             </div>
           </v-col>
@@ -54,128 +56,121 @@
 <script>
   export default {
     data: () => ({
-      links: [
-        'Dashboard',
-        'Messages',
-        'Profile',
-        'Updates',
-      ],
-      search: '',
-        calories: '',
-        desserts: [
+        links: [
+            'Dashboard',
+            'Messages',
+            'Profile',
+            'Updates',
+        ],
+        search: '',
+        items: [
             {
-            name: 'Frozen Yogurt',
-            calories: 159,
-            fat: 6.0,
-            carbs: 24,
-            protein: 4.0,
-            iron: '1%',
+                name: 'LINE',
+                date: '2021/09/21',
+                level: 'I3',
+                focus: 'Devops',
+                yoe: 5,
+                tc: 7000000,
             },
             {
-            name: 'Ice cream sandwich',
-            calories: 237,
-            fat: 9.0,
-            carbs: 37,
-            protein: 4.3,
-            iron: '1%',
+                name: 'Indeed',
+                date: '2020/06/21',
+                level: 'SWE2',
+                focus: 'Backend',
+                yoe: 6,
+                tc: 17930000,
             },
             {
-            name: 'Eclair',
-            calories: 262,
-            fat: 16.0,
-            carbs: 23,
-            protein: 6.0,
-            iron: '7%',
+                name: 'Mercari',
+                date: '2021/11/21',
+                level: 'EX2',
+                focus: 'Frontend',
+                yoe: 8,
+                tc: 11000000,
             },
             {
-            name: 'Cupcake',
-            calories: 305,
-            fat: 3.7,
-            carbs: 67,
-            protein: 4.3,
-            iron: '8%',
+                name: 'Rakuten',
+                date: '2020/06/30',
+                level: 'BBB',
+                focus: 'Backend',
+                yoe: 3,
+                tc: 7000000,
             },
             {
-            name: 'Gingerbread',
-            calories: 356,
-            fat: 16.0,
-            carbs: 49,
-            protein: 3.9,
-            iron: '16%',
+                name: 'Amazon',
+                date: '2019/08/21',
+                level: 'L5',
+                focus: 'Fullstack',
+                yoe: 2,
+                tc: 8000000,
             },
             {
-            name: 'Jelly bean',
-            calories: 375,
-            fat: 0.0,
-            carbs: 94,
-            protein: 0.0,
-            iron: '0%',
+                name: 'Rakuten',
+                date: '2020/05/21',
+                level: 'SE1',
+                focus: 'Data',
+                yoe: 2,
+                tc: 7000000,
             },
             {
-            name: 'Lollipop',
-            calories: 392,
-            fat: 0.2,
-            carbs: 98,
-            protein: 0,
-            iron: '2%',
+                name: 'Paypay',
+                date: '2021/09/10',
+                level: 'E3',
+                focus: 'Backend',
+                yoe: 7,
+                tc: 12000000,
             },
             {
-            name: 'Honeycomb',
-            calories: 408,
-            fat: 3.2,
-            carbs: 87,
-            protein: 6.5,
-            iron: '45%',
+                name: 'Rakuten',
+                date: '2020/01/02',
+                level: 'BBB',
+                focus: 'Backend',
+                yoe: 2,
+                tc: 8000000,
             },
             {
-            name: 'Donut',
-            calories: 452,
-            fat: 25.0,
-            carbs: 51,
-            protein: 4.9,
-            iron: '22%',
+                name: 'Yahoo',
+                date: '2021/05/24',
+                level: 'SE2',
+                focus: 'Automotive',
+                yoe: 6,
+                tc: 12000000,
             },
             {
-            name: 'KitKat',
-            calories: 518,
-            fat: 26.0,
-            carbs: 65,
-            protein: 7,
-            iron: '6%',
+                name: 'LINE',
+                date: '2021/05/12',
+                level: 'I4',
+                focus: 'Frontend',
+                yoe: 7,
+                tc: 6000000,
             },
         ],
     }),
     computed: {
       headers () {
         return [
-          {
-            text: 'Company',
-            align: 'start',
-            sortable: false,
-            value: 'name',
-          },
-          {
-            text: 'Date',
-            value: 'calories',
-            filter: value => {
-              if (!this.calories) return true
-              return value < parseInt(this.calories)
-            },
-          },
-          { text: 'Level', value: 'fat' },
-          { text: 'Focus', value: 'carbs' },
-          { text: 'Years of Experience', value: 'protein' },
-          { text: 'Total Compensation', value: 'iron' },
+          { text: 'Company', align: 'start', value: 'name' },
+          { text: 'Date', align: 'start', value: 'date' },
+          { text: 'Level', align: 'start', value: 'level' },
+          { text: 'Focus', align: 'start', value: 'focus' },
+          { text: 'Years of Experience', align: 'center', value: 'yoe' },
+          { text: 'Total Compensation', align: 'center', value: 'tc' },
         ]
       },
     },
     methods: {
-      filterOnlyCapsText (value, search) {
+      filterCompanies (value, search) {
         return value != null &&
           search != null &&
           typeof value === 'string' &&
           value.toString().toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !== -1
       },
+      formattedCurrency (value) {
+          return value.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'JPY',
+        })
+      }
     },
   }
 </script>
