@@ -17,37 +17,34 @@
       </v-container>
     </v-app-bar>
 
-    <v-main class="grey lighten-3">
+    <v-main class="white lighten-3">
       <v-container>
-        <v-row>
+          <v-card class="elevation-0">
+            <v-card-title>
             Vietnamese Software Engineer Salary
-        </v-row>
-        <v-row>
-          <v-col>
-            <div>
-                <v-data-table
+            <v-spacer></v-spacer>
+            <v-text-field
+                v-model="search"
+                append-icon="mdi-magnify"
+                label="Search company"
+                single-line
+                hide-details
+            ></v-text-field>
+            </v-card-title>
+            <v-data-table
                 :headers="headers"
                 :items="items"
                 item-key="name"
-                class="elevation-1"
+                class="elevation-0"
                 :search="search"
                 :custom-filter="filterCompanies"
                 >
-                <template v-slot:top>
-                    <v-text-field
-                    v-model="search"
-                    label="Search company"
-                    class="mx-4"
-                    ></v-text-field>
-                </template>
                 <template v-slot:item.tc="{ item }">
                     <span>{{ formattedCurrency(item.tc) }}</span>
                 </template>
 
-                </v-data-table>
-            </div>
-          </v-col>
-        </v-row>
+            </v-data-table>
+          </v-card>
       </v-container>
     </v-main>
   </v-app>
@@ -174,3 +171,9 @@
     },
   }
 </script>
+
+<style scoped>
+.v-data-table {
+  box-shadow: none !important;
+}
+</style>
