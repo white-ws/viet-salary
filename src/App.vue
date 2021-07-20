@@ -44,17 +44,17 @@
 </template>
 
 <script>
-import Home from './components/Home';
+import Home from './components/Home'
 
 export default {
   name: 'App',
 
   components: {
-    Home,
+    Home
   },
 
   data: () => ({
     //
-  }),
-};
+  })
+}
 </script>
