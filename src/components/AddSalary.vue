@@ -22,9 +22,7 @@
           <v-card class="elevation-0">
             <v-card-title>
               <v-spacer></v-spacer>
-              <v-btn
-              color="primary"
-            >Add your salary</v-btn>
+              <v-btn color="primary">Add your salary</v-btn>
             <v-spacer></v-spacer>
             </v-card-title>
             <v-card-title>
