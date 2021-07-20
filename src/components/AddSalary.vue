@@ -5,9 +5,7 @@
       color="white"
       flat
     >
-    <v-app-bar-title class="ml-5">VIET SALARY</v-app-bar-title>
       <v-container class="py-0 fill-height">
-        <v-spacer></v-spacer>
         <v-btn
           v-for="link in links"
           :key="link"
