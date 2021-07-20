@@ -1,57 +1,67 @@
 <template>
-  <v-app id="inspire">
-    <v-app-bar
-      app
-      color="white"
-      flat
-    >
-      <v-container class="py-0 fill-height">
-        <v-btn
-          v-for="link in links"
-          :key="link"
-          text
-        >
-          {{ link }}
-        </v-btn>
-
-      </v-container>
-    </v-app-bar>
-
-    <v-main class="white">
-      <v-container>
-          <v-card class="elevation-0">
-            <v-card-title>
-              <v-spacer></v-spacer>
-              <v-btn color="primary">Add your salary</v-btn>
-            <v-spacer></v-spacer>
-            </v-card-title>
-            <v-card-title>
-            Vietnamese Software Engineer Salary
-            <v-spacer></v-spacer>
+  <v-container>
+    <v-card class="elevation-0">
+      <v-card-title>
+      <v-spacer></v-spacer>
+      SHARE YOUR SALARY
+      <v-spacer></v-spacer>
+      </v-card-title>
+      <v-form>
+        <v-row>
+          <v-col cols="2">
+            <v-subheader>Company Name</v-subheader>
+          </v-col>
+          <v-col cols="8">
             <v-text-field
-                v-model="search"
-                append-icon="mdi-magnify"
-                label="Search company"
-                single-line
-                hide-details
+              v-model="first"
+              label="Your company name"
+              outlined
+              solo
             ></v-text-field>
-            </v-card-title>
-            <v-data-table
-                :headers="headers"
-                :items="items"
-                class="elevation-0"
-                :search="search"
-                :custom-filter="filterCompanies"
-                >
-                <template v-slot:item.tc="{ item }">
-                    <span>{{ formattedCurrency(item.tc) }}</span>
-                </template>
-
-            </v-data-table>
-          </v-card>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="2">
+            <v-subheader>Company Name</v-subheader>
+          </v-col>
+          <v-col cols="8">
+            <v-text-field
+              v-model="first"
+              label="Your company name"
+              outlined
+              solo
+            ></v-text-field>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="2">
+            <v-subheader>Company Name</v-subheader>
+          </v-col>
+          <v-col cols="8">
+            <v-text-field
+              v-model="first"
+              label="Your company name"
+              outlined
+              solo
+            ></v-text-field>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="2">
+            <v-subheader>Company Name</v-subheader>
+          </v-col>
+          <v-col cols="8">
+            <v-text-field
+              v-model="first"
+              label="Your company name"
+              outlined
+              solo
+            ></v-text-field>
+          </v-col>
+        </v-row>
+      </v-form>
+    </v-card>
       </v-container>
-    </v-main>
-  </v-app>
 </template>
 
 <script>
