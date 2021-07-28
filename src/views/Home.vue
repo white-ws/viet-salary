@@ -48,7 +48,7 @@ export default {
         name: 'LINE',
         date: '2021/09/21',
         level: 'I3',
-        focus: 'Devops',
+        field: 'Devops',
         yoe: 5,
         tc: 7000000
       },
@@ -56,7 +56,7 @@ export default {
         name: 'Indeed',
         date: '2020/06/21',
         level: 'SWE2',
-        focus: 'Backend',
+        field: 'Backend',
         yoe: 6,
         tc: 17930000
       },
@@ -64,7 +64,7 @@ export default {
         name: 'Mercari',
         date: '2021/11/21',
         level: 'EX2',
-        focus: 'Frontend',
+        field: 'Frontend',
         yoe: 8,
         tc: 11000000
       },
@@ -72,7 +72,7 @@ export default {
         name: 'Rakuten',
         date: '2020/06/30',
         level: 'BBB',
-        focus: 'Backend',
+        field: 'Backend',
         yoe: 3,
         tc: 7000000
       },
@@ -80,7 +80,7 @@ export default {
         name: 'Amazon',
         date: '2019/08/21',
         level: 'L5',
-        focus: 'Fullstack',
+        field: 'Fullstack',
         yoe: 2,
         tc: 8000000
       },
@@ -88,7 +88,7 @@ export default {
         name: 'Rakuten',
         date: '2020/05/21',
         level: 'SE1',
-        focus: 'Data',
+        field: 'Data',
         yoe: 2,
         tc: 7000000
       },
@@ -96,7 +96,7 @@ export default {
         name: 'Paypay',
         date: '2021/09/10',
         level: 'E3',
-        focus: 'Backend',
+        field: 'Backend',
         yoe: 7,
         tc: 12000000
       },
@@ -104,7 +104,7 @@ export default {
         name: 'Rakuten',
         date: '2020/01/02',
         level: 'BBB',
-        focus: 'Backend',
+        field: 'Backend',
         yoe: 2,
         tc: 8000000
       },
@@ -112,7 +112,7 @@ export default {
         name: 'Yahoo',
         date: '2021/05/24',
         level: 'SE2',
-        focus: 'Automotive',
+        field: 'Automotive',
         yoe: 6,
         tc: 12000000
       },
@@ -120,7 +120,7 @@ export default {
         name: 'LINE',
         date: '2021/05/12',
         level: 'I4',
-        focus: 'Frontend',
+        field: 'Frontend',
         yoe: 7,
         tc: 6000000
       }
@@ -132,9 +132,9 @@ export default {
         { text: 'Company', align: 'start', value: 'name' },
         { text: 'Date', align: 'start', value: 'date' },
         { text: 'Level', align: 'start', value: 'level' },
-        { text: 'Focus', align: 'start', value: 'focus' },
+        { text: 'Field', align: 'start', value: 'field' },
         { text: 'Years of Experience', align: 'center', value: 'yoe' },
-        { text: 'Total Compensation', align: 'center', value: 'tc' }
+        { text: 'Total Compensation', align: 'end', value: 'tc' }
       ]
     }
   },
