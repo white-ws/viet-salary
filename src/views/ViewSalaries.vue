@@ -148,7 +148,14 @@ export default {
   mounted () {
     api.getSalaries()
       .then(response => {
-        this.item = response
+        this.items = response.data.map(res => ({
+			name: res.company.name,
+			date: res.createdDt,
+			level: res.level,
+			field: res.field,
+			yoe: res.yoe,
+			tc: res.tc
+		}))
       })
   },
   methods: {

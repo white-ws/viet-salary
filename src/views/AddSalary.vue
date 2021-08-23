@@ -13,7 +13,7 @@
           class="px-10 pt-3"
         >
           <v-text-field
-            v-model="name"
+            v-model="companyName"
             :rules="[rules.required, rules.maxLength50]"
             class="px-10 py-2"
             label="Your company name"
@@ -69,7 +69,7 @@ export default {
 
   data: () => ({
 	validForm: false,
-    name: '',
+    companyName: '',
     level: '',
     field: '',
     yoe: '',
@@ -90,7 +90,7 @@ export default {
   computed: {
     headers () {
       return [
-        { text: 'Company', align: 'start', value: 'name' },
+        { text: 'Company', align: 'start', value: 'companyName' },
         { text: 'Date', align: 'start', value: 'date' },
         { text: 'Level', align: 'start', value: 'level' },
         { text: 'Focus', align: 'start', value: 'focus' },
@@ -100,7 +100,7 @@ export default {
     },
 	form () {
         return {
-          name: this.name,
+          companyName: this.companyName,
           address: this.address,
           city: this.city,
           state: this.state,
@@ -124,10 +124,10 @@ export default {
       })
     },
     submit () {
-		this.$refs.form.validate()
-		if (!this.validForm) return;
+      this.$refs.form.validate()
+	  if (!this.validForm) return;
       const salary = {
-		  name: this.name,
+		  companyName: this.companyName,
 		  level: this.level,
 		  field: this.field,
 		  yoe: this.yoe,
