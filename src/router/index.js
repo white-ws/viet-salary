@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import ViewSalaries from '../views/ViewSalaries.vue'
 import AddSalary from '../views/AddSalary.vue'
 
 Vue.use(VueRouter)
@@ -8,8 +8,8 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'ViewSalaries',
+    component: ViewSalaries
   },
   {
     path: '/add',

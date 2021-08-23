@@ -1,31 +1,44 @@
 <template>
   <v-app id="inspire">
-    <v-app-bar app color="white" flat>
+    <v-app-bar
+      app
+      color="white"
+      flat
+    >
       <v-container class="py-0 fill-height">
-        <router-link to="/" tag="button"><v-tool-bar-title class="toolbar_title ml-5 overflow-visible">VIET SALARY</v-tool-bar-title></router-link>
-        <v-spacer></v-spacer>
-        <v-btn v-for="link in links" :key="link" text>
+        <router-link
+          to="/"
+          tag="button"
+        >
+          <v-tool-bar-title class="toolbar_title ml-5 overflow-visible">
+            VIET SALARY
+          </v-tool-bar-title>
+        </router-link>
+        <v-spacer />
+        <v-btn
+          v-for="link in links"
+          :key="link"
+          text
+        >
           {{ link }}
         </v-btn>
-
       </v-container>
     </v-app-bar>
 
     <v-main class="white">
-      <router-view></router-view>
+      <router-view />
     </v-main>
   </v-app>
-
 </template>
 
 <script>
 export default {
   data: () => ({
     links: [
-      'Placerholder 1',
-      'Placerholder 2',
-      'Placerholder 3',
-      'Placerholder 4'
+    //   'Placerholder 1',
+    //   'Placerholder 2',
+    //   'Placerholder 3',
+    //   'Placerholder 4'
     ]
   })
 }
