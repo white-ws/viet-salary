@@ -33,6 +33,9 @@
         <template v-slot:item.tc="{ item }">
           <span>{{ formattedCurrency(item.tc) }}</span>
         </template>
+        <template v-slot:item.date="{ item }">
+          <span>{{ formattedDate(item.date) }}</span>
+        </template>
       </v-data-table>
     </v-card>
   </v-container>
@@ -40,6 +43,7 @@
 
 <script>
 import api from '../services/api'
+import moment from 'moment'
 
 export default {
   data: () => ({
@@ -137,7 +141,7 @@ export default {
     headers () {
       return [
         { text: 'Company', align: 'start', value: 'name' },
-        { text: 'Date', align: 'start', value: 'date' },
+        { text: 'Added Date', align: 'start', value: 'date' },
         { text: 'Level', align: 'start', value: 'level' },
         { text: 'Field', align: 'start', value: 'field' },
         { text: 'Years of Experience', align: 'center', value: 'yoe' },
@@ -166,11 +170,14 @@ export default {
           value.toString().toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !== -1
     },
     formattedCurrency (value) {
-      return value.toLocaleString('en-US', {
+      return value.toLocaleString('vi', {
         style: 'currency',
-        currency: 'JPY'
+        currency: 'VND'
       })
-    }
+    },
+	formattedDate (date) {
+		return moment(date).fromNow()
+	}
   }
 }
 </script>

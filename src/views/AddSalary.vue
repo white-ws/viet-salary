@@ -20,29 +20,29 @@
           />
           <v-text-field
             v-model="level"
-			:rules="[rules.maxLength5]"
+            :rules="[rules.maxLength5]"
             class="px-10 py-2"
             label="Level"
           />
           <v-text-field
             v-model="field"
-			:rules="[rules.maxLength20]"
+            :rules="[rules.maxLength20]"
             class="px-10 py-2"
             label="Field"
           />
           <v-text-field
             v-model="yoe"
-			:rules="[rules.required, rules.lessThan50, rules.isPositiveNumber]"
+            :rules="[rules.required, rules.lessThan50, rules.isPositiveNumber]"
             class="px-10 py-2"
             label="Years of Experience"
           />
-		  <vuetify-money
-			v-model="tc"
-			:rules="[rules.required]"
+          <vuetify-money
+            v-model="tc"
+            :rules="[rules.required]"
             class="px-10 py-2"
             label="Total Compensation"
-			:options="money"
-			/>
+            :options="money"
+          />
         </v-form>
       </v-card-text>
       <v-card-title class="mb-10">
@@ -83,6 +83,7 @@ export default {
 		isPositiveNumber: value => Number.isInteger(Number(value)) && value >= 0 || 'Must input number'
     },
 	money: {
+		  locale: 'vi-VN',
           suffix: ' VND',
           precision: 0
         }
@@ -111,18 +112,6 @@ export default {
 
   },
   methods: {
-    filterCompanies (value, search) {
-      return value != null &&
-          search != null &&
-          typeof value === 'string' &&
-          value.toString().toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !== -1
-    },
-    formattedCurrency (value) {
-      return value.toLocaleString('en-US', {
-        style: 'currency',
-        currency: 'JPY'
-      })
-    },
     submit () {
       this.$refs.form.validate()
 	  if (!this.validForm) return;
@@ -133,8 +122,9 @@ export default {
 		  yoe: this.yoe,
 		  tc: this.tc
 		}
-	  console.log(salary)
       api.submitSalary(salary)
+	  this.$router.push('/add/submitted')
+
     }
   }
 }
