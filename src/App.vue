@@ -11,7 +11,7 @@
           tag="button"
         >
           <v-tool-bar-title class="toolbar_title ml-5 overflow-visible">
-            VIET SALARY
+            <img src="@/assets/logo.svg" width="30" class="mr-2"/>  VietSalary
           </v-tool-bar-title>
         </router-link>
         <v-spacer />
@@ -46,6 +46,7 @@ export default {
 
 <style scoped>
 .toolbar_title {
+	font-family: 'Roboto';
   font-size: 1.25rem;
     line-height: 1.5;
 }
