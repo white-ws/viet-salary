@@ -20,13 +20,13 @@
           />
           <v-text-field
             v-model="level"
-            :rules="[rules.maxLength5]"
+            :rules="[rules.maxLength50]"
             class="px-10 py-2"
             label="Level"
           />
           <v-text-field
             v-model="field"
-            :rules="[rules.maxLength20]"
+            :rules="[rules.maxLength50]"
             class="px-10 py-2"
             label="Field"
           />
@@ -76,8 +76,6 @@ export default {
     tc: '',
 	rules: {
 		required: value => !!value || 'Required.',
-		maxLength5: value => value.length <= 5 || 'Max 5 characters',
-		maxLength20: value => value.length <= 20 || 'Max 20 characters',
         maxLength50: value => value.length <= 50 || 'Max 50 characters',
 		lessThan50: value => value <= 50 || 'Maximum at 50',
 		isPositiveNumber: value => Number.isInteger(Number(value)) && value >= 0 || 'Must input number'
